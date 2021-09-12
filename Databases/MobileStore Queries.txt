@@ -1,0 +1,71 @@
+// Creates a database of Mobile store
+CREATE DATABASE MobileStore;
+
+// Create a table of Users
+CREATE TABLE Users(Id INT(11) PRIMARY KEY AUTO_INCREMENT, Name VARCHAR(255) NOT NULL, Email VARCHAR(255) NOT NULL, Password VARCHAR(255) NOT NULL, Contact VARCHAR(255) NOT NULL, City VARCHAR(255) NOT NULL, Address VARCHAR(255) NOT NULL);
+
+// Create a table of items/products/mobile
+CREATE TABLE Items(Id INT(11) PRIMARY KEY AUTO_INCREMENT, Name VARCHAR(255) NOT NULL, Size VARCHAR(255) NOT NULL, Processor VARCHAR(255) NOT NULL, Internal_Storage VARCHAR(255) NOT NULL, RAM VARCHAR(255) NOT NULL, Features VARCHAR(255) NOT NULL, Battery VARCHAR(255) NOT NULL, Price INT(11) NOT NULL);
+
+// Create of table of items sold or in purchase
+CREATE TABLE Users_Items(Id int(11) PRIMARY KEY AUTO_INCREMENT, User_Id INT(11) NOT NULL , Item_Id INT(11) NOT NULL, Status enum('Added To Cart','Confirmed') NOT NULL);
+
+// Adds index keys in Users_Items Table
+ALTER TABLE `users_items` ADD INDEX( `User_Id`, `Item_Id`);
+
+// Adds Foreign Key User_Id with Users Table Id
+ALTER TABLE `users_items` ADD FOREIGN KEY (`User_Id`) REFERENCES `users`(`Id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+// Adds Foreign Key Item_Id with Items Table Id
+ALTER TABLE `users_items` ADD FOREIGN KEY (`Item_Id`) REFERENCES `items`(`Id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+// Inserting Values
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Apple iPhone 11 Pro Max','6.5 inches','Apple A13 Bionic (7 nm+)','512GB','4GB','Face ID, Camera(Wide,Telephoto,Ultrawide,Depth/Biometrics),Scratch-resistant glass,IP68 dust/water resistant (up to 4m for 30 mins)','3969 mAh',150000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Apple iPhone 11 Pro','5.8 inches','Apple A13 Bionic (7 nm+)','512GB','4GB','Face ID, Camera(Wide,Telephoto,Ultrawide,Depth/Biometrics),Scratch-resistant glass,IP68 dust/water resistant (up to 4m for 30 mins)','3046 mAh',130000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Apple iPhone 11','6.1 inches','Apple A13 Bionic (7 nm+)','256GB','4GB','Face ID, Camera(Wide,Ultrawide,Depth/Biometrics),Scratch-resistant glass,IP68 dust/water resistant (up to 2m for 30 mins)','3110 mAh',80000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Apple iPhone XR','6.1 inches','Apple A12 Bionic (7 nm)','256GB','3GB','Face ID, Camera(Wide,Depth/Biometrics),Scratch-resistant glass,IP67 dust/water resistant (up to 1m for 30 mins)','2942 mAh',65000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy Z Flip','6.7 inches','Qualcomm SM8150 Snapdragon 855+ (7 nm)','256GB','8GB','Foldable,Camera(Wide,Ultrawide,Depth),Fingerprint (side-mounted)','3300 mAh',110000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy S20 Ultra','6.9 inches','Exynos 990 (7 nm+)','128GB','12GB','Fingerprint (under display, ultrasonic),Camera(Wide,Periscope,Ultrawide,Depth),IP68 dust/water resistant (up to 1.5m for 30 mins)','5000 mAh',93000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy S20 Plus','6.7 inches','Exynos 990 (7 nm+)','128GB','8GB','Fingerprint (under display, ultrasonic),Camera(Wide,Telephoto,Ultrawide,Depth),IP68 dust/water resistant (up to 1.5m for 30 mins)','4500 mAh',78000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy S20','6.2 inches','Exynos 990 (7 nm+)','128GB','8GB','Fingerprint (under display, ultrasonic),Camera(Wide,Telephoto,Ultrawide),IP68 dust/water resistant (up to 1.5m for 30 mins)','4000 mAh',70000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy Note 10 Plus','6.8 inches','Exynos 9825 (7 nm)','512GB','12GB','Fingerprint (under display, ultrasonic),Camera(Wide,Telephoto,Ultrawide,Depth),IP68 dust/water resistant (up to 1.5m for 30 mins),Stylus (Bluetooth integration, accelerometer, gyro)','4300 mAh',90000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy Note 10','6.3 inches','Exynos 9825 (7 nm)','256GB','8GB ','Fingerprint (under display, ultrasonic),Camera(Wide,Telephoto,Ultrawide),IP68 dust/water resistant (up to 1.5m for 30 mins), Stylus (Bluetooth integration, accelerometer, gyro)','3500 mAh',73000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy Note 10 Lite','6.7 inches','Exynos 9810 (10 nm)','128GB','8GB','Fingerprint (under display, optical),Camera(Wide,Telephoto,Ultrawide),Stylus (Bluetooth integration, accelerometer, gyro)','4500 mAh',39000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy S10 Plus','6.4 inches','Exynos 9820 (8 nm)','1TB','12GB','Fingerprint (under display, ultrasonic),Camera(Wide,Telephoto,Ultrawide),IP68 dust/water resistant (up to 1.5m for 30 mins)','4100 mAh',118000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy S10','6.1 inches','Exynos 9820 (8 nm)','512GB','8GB','Fingerprint (under display, ultrasonic),Camera(Wide,Telephoto,Ultrawide),IP68 dust/water resistant (up to 1.5m for 30 mins)','3400 mAh',58000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Samsung Galaxy S10 Lite','6.7 inches','Qualcomm SM8150 Snapdragon 855 (7 nm)','512GB','8GB','Fingerprint (under display, optical),Camera(Wide,Ultrawide) ','4500 mAh',45000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('OnePlus 8 Pro','6.78 inches','Qualcomm SM8250 Snapdragon 865 (7 nm+)','256GB','12GB','Fingerprint (under display, optical),Camera(Wide,Telephoto,Ultrawide,Depth),IP68 dust/water resistant','4510 mAh',60000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('OnePlus 8','6.55 inches','Qualcomm SM8250 Snapdragon 865 (7 nm+)','256GB','12GB','Fingerprint (under display, optical),Camera(Wide,Ultrawide,macro)','4300 mAh',50000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('OnePlus 7T Pro','6.67 inches','Qualcomm SM8150 Snapdragon 855+ (7 nm)','256GB','12GB','Fingerprint (under display, optical),Camera(Wide,Telephoto,Ultrawide)','4085 mAh',58000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('OnePlus 7T','6.55 inches','Qualcomm SM8150 Snapdragon 855+ (7 nm)','256GB','8GB','Fingerprint (under display, optical),Camera(Wide,Telephoto,Ultrawide)','3800 mAh',38000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('OnePlus 7 Pro','6.67 inches','Qualcomm SM8150 Snapdragon 855 (7 nm)','256GB','12GB','Fingerprint (under display, optical),Camera(Wide,Telephoto,Ultrawide)','4000 mAh',44000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('OnePlus 7','6.41 inches','Qualcomm SM8150 Snapdragon 855 (7 nm)','256GB','8GB','Fingerprint (under display, optical),Camera(Wide,Depth)','3700 mAh',33000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Google PIxel 4 XL','6.3 inches','Qualcomm SM8150 Snapdragon 855 (7 nm)','128GB','6GB','Face ID,Camera(Wide,Telephoto,Depth/Biometrics),IP68 dust/water resistant (up to 1.5m for 30 mins)','3700 mAh',84000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Google PIxel 4','5.7 inches','Qualcomm SM8150 Snapdragon 855 (7 nm)','128GB','6GB','Face ID,Camera(Wide,Telephoto,Depth/Biometrics),IP68 dust/water resistant (up to 1.5m for 30 mins)','2800 mAh',70000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Google Pixel 3 XL','6.3 inches','Qualcomm SDM845 Snapdragon 845 (10 nm)','128GB','4GB','Fingerprint (rear-mounted),Camera(Wide,Ultrawide),IP68 dust/water resistant (up to 1.5m for 30 mins)','3430 mAh',55000);
+
+INSERT INTO Items(Name,Size,Processor,Internal_Storage,RAM,Features,Battery,Price) VALUES('Google Pixel 3','5.5 inches','Qualcomm SDM845 Snapdragon 845 (10 nm)','128GB','4GB','Fingerprint (rear-mounted),Camera(Wide,Ultrawide),IP68 dust/water resistant (up to 1.5m for 30 mins)','2915 mAh',48000);
